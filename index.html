@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case of Saanvi Sharma 💗</title>
+
+<style>
+:root {
+    --pink: #ff7eb6;
+    --dark: #100d17;
+    --panel: #1b1724;
+    --white: #fff5fa;
+    --muted: #c8b9ce;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--white);
+    background:
+        radial-gradient(circle at top, #302039 0%, #15111d 45%, #09080e 100%);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#flash {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0.5;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.55;
+    }
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: min(92%, 760px);
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+.screen {
+    display: none;
+    animation: appear 0.65s ease both;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: anywhere;
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.15;
+    margin: 12px 0;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
+}
+
+h3 {
+    margin-bottom: 8px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.center {
+    text-align: center;
+}
+
+.eyebrow {
+    color: var(--pink);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: var(--muted);
+    max-width: 560px;
+    margin: 12px auto 25px;
+}
+
+.card {
+    background: linear-gradient(145deg, #211a2c, #14111c);
+    border: 1px solid #49324d;
+    border-radius: 22px;
+    padding: 24px;
+    margin: 18px 0;
+    box-shadow: 0 15px 45px #0004;
+}
+
+.glow {
+    color: var(--pink);
+    text-shadow: 0 0 22px #ff7eb655;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid #ff7eb666;
+    color: #ffc1dc;
+    background: #ff7eb610;
+    border-radius: 50px;
+    padding: 8px 13px;
+    margin: 5px;
+    font-size: 0.83rem;
+}
+
+.btn {
+    display: inline-block;
+    color: #21111b;
+    background: linear-gradient(135deg, #ffb5d5, #ff71ad);
+    border: none;
+    border-radius: 13px;
+    padding: 13px 20px;
+    margin: 8px 4px;
+    font-weight: bold;
+    box-shadow: 0 7px 22px #ff7eb622;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.btn.secondary {
+    color: var(--white);
+    background: #32283d;
+    border: 1px solid #654b6b;
+    box-shadow: none;
+}
+
+.btn.danger {
+    color: white;
+    background: linear-gradient(135deg, #fa343f, #a80020);
+}
+
+.divider {
+    height: 1px;
+    margin: 24px 0;
+    background: linear-gradient(90deg, transparent, #9a6d99, transparent);
+}
+
+.photo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 330px);
+    max-height: 360px;
+    object-fit: contain;
+    margin: 15px auto;
+    border: 1px solid #69445f;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px #0006;
+}
+
+.photo.small {
+    max-width: min(100%, 230px);
+    max-height: 270px;
+}
+
+.photo.tiny {
+    max-width: min(100%, 180px);
+    max-height: 210px;
+}
+
+.photo-label {
+    color: #cbb4d4;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.dialogue {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    margin: 17px 0;
+    animation: appear 0.45s ease both;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #38253f;
+    border: 1px solid #775276;
+    font-size: 1.4rem;
+}
+
+.speech {
+    flex: 1;
+    min-width: 0;
+    background: #211b2b;
+    border: 1px solid #48344f;
+    padding: 14px 16px;
+    border-radius: 5px 17px 17px 17px;
+}
+
+.speech.officer {
+    border-color: #41617b;
+    background: #182332;
+}
+
+.speech .speaker {
+    display: block;
+    color: var(--pink);
+    font-size: 0.77rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.speech.officer .speaker {
+    color: #8dcaff;
+}
+
+.speech p {
+    margin: 0;
+    white-space: pre-line;
+}
+
+.officer-photo {
+    max-width: min(100%, 220px);
+    max-height: 260px;
+}
+
+.stamp {
+    display: inline-block;
+    color: #ff6f83;
+    border: 3px solid #ff6f83;
+    padding: 7px 14px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    transform: rotate(-7deg);
+    margin: 12px;
+}
+
+.case-number {
+    color: #ff6f83;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+.arrest-title {
+    color: #ff424f;
+    text-shadow: 0 0 24px #ff001855;
+}
+
+.jail-bars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    margin: 25px auto;
+    max-width: 360px;
+}
+
+.jail-bar {
+    height: 105px;
+    border-radius: 5px;
+    border: 3px solid #a7a1b1;
+    background: linear-gradient(90deg, #777, #25232e, #777);
+    box-shadow: 0 0 10px #000;
+}
+
+input[type="text"] {
+    width: min(100%, 400px);
+    border: 1px solid #6d4d75;
+    border-radius: 12px;
+    background: #110e17;
+    color: white;
+    padding: 13px;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--pink);
+}
+
+.progress-track {
+    height: 8px;
+    background: #34283d;
+    border-radius: 50px;
+    overflow: hidden;
+    max-width: 400px;
+    margin: 15px auto;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff7eb6, #ffc3de);
+    transition: width 0.3s;
+}
+
+#kissLayer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2000;
+    overflow: hidden;
+}
+
+.kiss {
+    position: absolute;
+    animation: kissFloat 2.2s ease-out forwards;
+}
+
+@keyframes kissFloat {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.4) rotate(-15deg);
+    }
+    55% {
+        opacity: 1;
+        transform: translate(-50%, -100px) scale(1.3) rotate(10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -180px) scale(0.9) rotate(20deg);
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+}
+
+.gallery-item {
+    min-width: 0;
+    background: #18131f;
+    border: 1px solid #443047;
+    padding: 9px;
+    border-radius: 14px;
+}
+
+.gallery-item .photo {
+    max-width: 100%;
+    max-height: 240px;
+    margin: 0 auto 8px;
+    border: none;
+    box-shadow: none;
+}
+
+.letter {
+    font-size: 1rem;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.love-ending {
+    font-size: clamp(1.6rem, 6vw, 3rem);
+    color: #ffb5d5;
+    text-shadow: 0 0 25px #ff7eb655;
+}
+
+footer {
+    text-align: center;
+    color: #806f89;
+    font-size: 0.78rem;
+    padding-top: 30px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 92%;
+        padding-top: 22px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    .dialogue {
+        gap: 8px;
+    }
+
+    .avatar {
+        width: 39px;
+        height: 39px;
+        flex-basis: 39px;
+        font-size: 1.15rem;
+    }
+
+    .speech {
+        padding: 12px;
+    }
+
+    .gallery {
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="flash"></div>
+<div id="particles"></div>
+<div id="kissLayer"></div>
+
+<main class="container">
+
+<!-- INTRO -->
+<section class="screen active center" id="intro">
+
+    <div class="eyebrow">A classified romantic investigation</div>
+
+    <h1 class="glow">THE PEOPLE VS.<br>SAANVI SHARMA</h1>
+
+    <p class="subtitle">
+        A highly confidential case involving one missing mother,
+        one abandoned pyaara bachha, and an extremely dramatic officer.
+    </p>
+
+    <div class="card">
+        <div style="font-size:3.5rem;">🚨 🗂️ 💗</div>
+
+        <h2>POLICE CASE FILE</h2>
+
+        <div class="case-number">CASE NO. SS-143-LOVE</div>
+
+        <div class="divider"></div>
+
+        <p>
+            <b>Accused:</b> Saanvi Sharma<br>
+            <b>Complainant:</b> Abdur Rehman<br>
+            <b>Primary allegation:</b> Leaving her pyaara bachha alone<br>
+            <b>Investigating officer:</b> Cat Officer 🐱👮🏻
+        </p>
+
+        <div class="stamp">TOP SECRET</div>
+    </div>
+
+    <p style="color:#c6b4cc;">
+        Warning: This investigation contains extreme drama,
+        questionable legal proceedings, and unreasonable amounts of love.
+    </p>
+
+    <button class="btn" onclick="goTo('opening')">
+        OPEN THE CASE FILE →
+    </button>
+
+    <footer>Made with dramatic suffering and love 💗</footer>
+</section>
+
+
+<!-- OPENING SCENE -->
+<section class="screen" id="opening">
+
+    <div class="eyebrow center">Chapter 01 · The Incident</div>
+
+    <h1 class="center">The Night Everything Went Wrong...</h1>
+
+    <div class="card center">
+        <div style="font-size:4rem;">🌃 📱 🥹</div>
+
+        <p>
+            It was an ordinary day.
+            Abdur Rehman was minding his own business...
+        </p>
+
+        <p>
+            Until he discovered that his beloved Saanvi Sharma
+            had been hanging out with her cousins.
+        </p>
+
+        <p class="glow">
+            And apparently, nobody had informed the authorities.
+        </p>
+
+        <div class="divider"></div>
+
+        <p style="color:#c7b5ce;">
+            Three hours passed.<br>
+            The complainant's dramatic tendencies reached critical levels.
+        </p>
+    </div>
+
+    <div class="card center">
+        <h2>🚔 THE POLICE HAVE BEEN CONTACTED</h2>
+        <p>
+            The complainant has officially filed a complaint against
+            the most beautiful criminal in the entire universe.
+        </p>
+
+        <button class="btn danger" onclick="goTo('station')">
+            ENTER THE POLICE STATION
+        </button>
+    </div>
+</section>
+
+
+<!-- POLICE STATION -->
+<section class="screen" id="station">
+
+    <div class="eyebrow center">Chapter 02 · Interrogation Room</div>
+
+    <h1 class="center">THE POLICE STATION 🚔</h1>
+
+    <div class="card center">
+
+        <img src="cat.jpg"
+             alt="Cat Officer"
+             class="photo officer-photo"
+             onerror="this.style.display='none'">
+
+        <h2>INSPECTOR CAT OFFICER 🐱</h2>
+
+        <p style="color:#9dcfff;">
+            Senior Officer, Department of Pyaara Bachha Protection
+        </p>
+
+        <div class="badge">Zero Tolerance for Sad Bachhas</div>
+        <div class="badge">100% Dramatic Investigation</div>
+    </div>
+
+    <div class="card">
+        <div class="dialogue">
+            <div class="avatar">🐱👮🏻</div>
+
+            <div class="speech officer">
+                <span class="speaker">Officer Cat</span>
+                <p>Whats Your Deal Abdur Rehman??</p>
+            </div>
+        </div>
+
+        <div class="dialogue">
+            <div class="avatar">🥹</div>
+
+            <div class="speech">
+                <span class="speaker">Abdur Rehman</span>
+                <p>Sir!! 😭😭   Saanvi Sharma Left Me Alone And Was Hanging Out With Her Cousins..!!!!
+
+She's My Mother And She Left Her Child Aloneeee!!!!!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+        <button class="btn" onclick="goTo('fir')">
+            FILE THE FIR 📋
+        </button>
+    </div>
+</section>
+
+
+<!-- FIR -->
+<section class="screen" id="fir">
+
+    <div class="eyebrow center">Chapter 03 · Formal Charges</div>
+
+    <h1 class="center">THE OFFICIAL FIR</h1>
+
+    <div class="card center">
+        <div style="font-size:3rem;">📋 ⚖️</div>
+
+        <h2>FIRST INFORMATION REPORT</h2>
+
+        <p class="case-number">FIR NO. 4569-ILY</p>
+
+        <div class="divider"></div>
+
+        <p>
+            <b>Accused:</b> Saanvi Sharma<br>
+            <b>Victim:</b> Her extremely pyaara bachha<br>
+            <b>Witness:</b> His overthinking brain<br>
+            <b>Evidence:</b> A suspicious lack of updates
+        </p>
+
+        <div class="stamp">CASE ACCEPTED</div>
+    </div>
+
+    <div class="card">
+        <div class="dialogue">
+            <div class="avatar">🐱👮🏻</div>
+
+            <div class="speech officer">
+                <span class="speaker">Officer Cat</span>
+                <p>Saanvi Sharma, Tumne Aik Serious Crime Kiya Hai,
+In The Case Of Abandoning Your Pyaara Bachha
+You Are Going To Be Arrested</p>
+            </div>
+        </div>
+
+        <div class="dialogue">
+            <div class="avatar">😭</div>
+
+            <div class="speech">
+                <span class="speaker">Abdur Rehman</span>
+                <p>Sir Sir, Ye Apne Male Cousin Ke Saath Ghumi Thi
+Isko Itna Samjhaya Hai Ke Vo Bhai Nahin Hai Duur Raho
+Samjhti Hi Nahi</p>
+            </div>
+        </div>
+
+        <div class="dialogue">
+            <div class="avatar">🐱👮🏻</div>
+
+            <div class="speech officer">
+                <span class="speaker">Officer Cat</span>
+                <p>Oh, This Also a Serious Crime, Making Your Husband Feel Insecure</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+        <button class="btn" onclick="goTo('night')">
+            REVEAL THE NEXT CRIME →
+        </button>
+    </div>
+</section>
+
+
+<!-- NIGHT CRIME -->
+<section class="screen" id="night">
+
+    <div class="eyebrow center">Chapter 04 · A Disturbing Discovery</div>
+
+    <h1 class="center">THE NIGHTTIME INCIDENT 🌙</h1>
+
+    <div class="card center">
+        <div style="font-size:3.5rem;">🌙 🛌 😭</div>
+
+        <p>
+            The investigation took a shocking turn.
+        </p>
+
+        <p>
+            It was discovered that the accused sometimes
+            goes to sleep while the complainant is still awake.
+        </p>
+
+        <p class="glow">
+            The officer has requested immediate clarification.
+        </p>
+    </div>
+
+    <div class="card">
+
+        <div class="dialogue">
+            <div class="avatar">😭</div>
+
+            <div class="speech">
+                <span class="speaker">Abdur Rehman</span>
+                <p>Officer Officer, Ye Ladki Raat Ko So Bhi Jaati Hai
+Mujhe Jaga Kar, Bahut Rulati Hai Meko🥹🥹</p>
+            </div>
+        </div>
+
+        <div class="dialogue">
+            <div class="avatar">🐱👮🏻</div>
+
+            <div class="speech officer">
+                <span class="speaker">Officer Cat</span>
+                <p>Oh Fu**, THIS IS THE BIGGEST CRIME, MAKING YOUR HUSBAND SAD AND DEPRESSED, MAKING HIM CRY
+Isme TO LIFE TIME JAIL MILEGI</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+        <button class="btn" onclick="goTo('complaint')">
+            CONTINUE THE INVESTIGATION
+        </button>
+    </div>
+</section>
+
+
+<!-- FINAL COMPLAINT -->
+<section class="screen" id="complaint">
+
+    <div class="eyebrow center">Chapter 05 · The Final Complaint</div>
+
+    <h1 class="center">THE COMPLAINANT HAS MORE TO SAY...</h1>
+
+    <div class="card">
+
+        <div class="dialogue">
+            <div class="avatar">😭</div>
+
+            <div class="speech">
+                <span class="speaker">Abdur Rehman</span>
+                <p>Sir, Aap Iski Sahi Wali Pitti Pitti Karna
+Isko Sharam Hi Nahi Aata, Hmph!!
+Gandi Mama,
+Isko Apne Bachhe Ka Khayal Rakhna Bhi Nahin Aata Achche Se</p>
+            </div>
+        </div>
+
+        <p class="center" style="color:#c6b5ce;">
+            The officer has reviewed the evidence.
+            The courtroom is in absolute chaos.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="center">
+            <h2>⚖️ THE VERDICT</h2>
+
+            <p>
+                After approximately zero seconds of legal deliberation...
+            </p>
+
+            <div class="stamp">GUILTY OF BEING TOO CUTE</div>
+        </div>
+    </div>
+
+    <div class="center">
+        <button class="btn danger" onclick="goTo('arrest')">
+            EXECUTE THE ARREST 🚨
+        </button>
+    </div>
+</section>
+
+
+<!-- ARREST -->
+<section class="screen center" id="arrest">
+
+    <div class="eyebrow">Chapter 06 · Police Operation</div>
+
+    <h1 class="arrest-title">SAANVI SHARMA</h1>
+
+    <div class="card">
+        <div style="font-size:4rem;">🚨 ⛓️ 🚔</div>
+
+        <h2>YOU ARE UNDER ARREST!</h2>
+
+        <p>
+            The authorities have arrived.
+            The sirens are activated.
+            The situation has become unnecessarily dramatic.
+        </p>
+
+        <div class="divider"></div>
+
+        <img src="cat.jpg"
+             alt="Cat Officer"
+             class="photo officer-photo"
+             onerror="this.style.display='none'">
+
+        <p class="glow">
+            Officer Cat is personally supervising the operation.
+        </p>
+
+        <p style="color:#ff9aab;">
+            CHARGES: ABANDONING YOUR PYAARA BACHHA
+        </p>
+
+        <button class="btn danger" id="arrestButton" onclick="performArrest()">
+            PUT ON THE HANDCUFFS ⛓️
+        </button>
+
+        <div id="arrestResult" style="display:none;">
+            <div class="stamp">UNDER ARREST</div>
+
+            <div class="dialogue">
+                <div class="avatar">🐱👮🏻</div>
+
+                <div class="speech officer">
+                    <span class="speaker">Officer Cat</span>
+                    <p>Saanvi Sharma, Your A Under arrest, Ye hath kadi pehno or ander jail me aao</p>
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="avatar">🥹</div>
+
+                <div class="speech">
+                    <span class="speaker">Abdur Rehman</span>
+                    <p>Officer, Jyaada Tang Na Karna Meri Mamma Ko
+aakhir meri mamma ke ilaawa koi nai hai mera</p>
+                </div>
+            </div>
+
+            <button class="btn" onclick="goTo('jail')">
+                TAKE HER TO JAIL 🔒
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- JAIL -->
+<section class="screen center" id="jail">
+
+    <div class="eyebrow">Chapter 07 · Maximum Security</div>
+
+    <h1>THE LOVE JAIL 🔒</h1>
+
+    <div class="card">
+        <div style="font-size:3.5rem;">🔐 🥹 💗</div>
+
+        <h2>PRISONER: SAANVI SHARMA</h2>
+
+        <div class="jail-bars">
+            <div class="jail-bar"></div>
+            <div class="jail-bar"></div>
+            <div class="jail-bar"></div>
+            <div class="jail-bar"></div>
+            <div class="jail-bar"></div>
+        </div>
+
+        <p>
+            There is only one way to unlock the prison.
+        </p>
+
+        <p class="glow">
+            Send 10 messages to the officer proving that
+            the accused is, in fact, very loved.
+        </p>
+
+        <p style="color:#bca9c8;font-size:0.9rem;">
+            Type anything you want. This is a silly game,
+            not a real test.
+        </p>
+
+        <input id="jailInput"
+               type="text"
+               maxlength="120"
+               placeholder="Type a message for the officer...">
+
+        <br>
+
+        <button class="btn" onclick="submitJailMessage()">
+            SEND MESSAGE 💌
+        </button>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="jailProgress"></div>
+        </div>
+
+        <p id="jailCounter">Messages sent: 0 / 10</p>
+
+        <div id="jailMessages"
+             style="color:#ffb5d5;white-space:pre-line;"></div>
+
+        <div id="jailUnlock" style="display:none;">
+            <div class="stamp">PRISONER RELEASED</div>
+
+            <h2 class="glow">THE DOORS ARE OPEN! 💗</h2>
+
+            <p>
+                Officer Cat has finally realized that the accused
+                is too precious to remain behind bars.
+            </p>
+
+            <button class="btn" onclick="releaseSaanvi()">
+                RELEASE MY MAMMA 💐
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- RELEASE -->
+<section class="screen center" id="release">
+
+    <div class="eyebrow">Chapter 08 · Case Closed</div>
+
+    <h1 class="glow">SAANVI HAS BEEN RELEASED 💗</h1>
+
+    <div class="card">
+        <div style="font-size:4rem;">💐 🫶🏻 💋</div>
+
+        <p>
+            After a long and unnecessarily dramatic investigation,
+            Officer Cat has decided to release Saanvi Sharma.
+        </p>
+
+        <p>
+            The case has been closed.
+            The handcuffs have been removed.
+            The pyaara bachha is waiting.
+        </p>
+
+        <h2>THE ARX EVIDENCE ARCHIVE</h2>
+
+        <p style="color:#c8b9ce;">
+            A collection of extremely important photographic evidence.
+        </p>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="arx.jpg"
+                     alt="ARX photo 1"
+                     class="photo"
+                     onerror="this.closest('.gallery-item').style.display='none'">
+                <div class="photo-label">Evidence No. 01</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="arx (1).jpg"
+                     alt="ARX photo 2"
+                     class="photo"
+                     onerror="this.closest('.gallery-item').style.display='none'">
+                <div class="photo-label">Evidence No. 02</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="arx. (2).jpg"
+                     alt="ARX photo 3"
+                     class="photo"
+                     onerror="this.closest('.gallery-item').style.display='none'">
+                <div class="photo-label">Evidence No. 03</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="arx (3).jpg"
+                     alt="ARX photo 4"
+                     class="photo"
+                     onerror="this.closest('.gallery-item').style.display='none'">
+                <div class="photo-label">Evidence No. 04</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="arx (4).jpg"
+                     alt="ARX photo 5"
+                     class="photo"
+                     onerror="this.closest('.gallery-item').style.display='none'">
+                <div class="photo-label">Evidence No. 05</div>
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <p>
+            And now, the most important part of this entire case...
+        </p>
+
+        <button class="btn" onclick="goTo('letter')">
+            OPEN YOUR LETTER, SAANVI 💌
+        </button>
+    </div>
+</section>
+
+
+<!-- LETTER -->
+<section class="screen" id="letter">
+
+    <div class="eyebrow center">Final Chapter · From Abdur Rehman</div>
+
+    <h1 class="center glow">For My Saanvi Sharma 💗</h1>
+
+    <div class="card center">
+
+        <div style="font-size:3.5rem;">💐 🩷 🫶🏻</div>
+
+        <img src="sharma.jpg"
+             alt="Saanvi"
+             class="photo"
+             style="max-width:min(100%, 360px);max-height:440px;"
+             onerror="this.style.display='none'">
+
+        <p style="color:#d7c0dc;">
+            Meri pyaari Saanvi ke liye...
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="letter" id="loveLetter">Yaar Ik Drama Karta Hun Main Thhoda Thhoda, Its All To Make You Smile And Laugh
+
+I Really Care About You So Much And Love Youu
+
+I Really Miss You When You're Go Somewhere
+
+And Saanvi Please
+
+Mujhe Tension Hota Hai Yaar, Bata Kar Jaaya Karo Na
+
+Apne Bachhe Ko Kyu Rulate Hi Yaar
+
+Main To Aapka Pyaara Bachhaw Hun Na
+
+Aap Bhi Meri Pyaari Mamma Banne Ka Try Karo Na Please
+
+And Please Please YOUR COUSINS ARE NOT YOUR BROTHERS, STAY AWAYYYYYY!!
+
+TRY TO UNDERSTAND WHAT IM TRYNA SAY..!!!
+
+And Please Bata Kar Jaaya Karo
+
+20 Sec Bhi Ni Lagte Batane Mein
+
+Warna Mujhe Dar Lagne Lag Jaata Hai Please
+
+And Bas Itna Hi Saanvi
+
+Tum Bahut Achi Or Pyaari Ho
+
+Tum Sabse Sunder Ho
+
+I Really Love You So Much Saanvi Sharma
+
+My Sharma.. <3~!!</div>
+
+        <div class="divider"></div>
+
+        <h2 class="love-ending">
+            I LOVE YOU, SAANVI 💗
+        </h2>
+
+        <p>
+            Meri pyaari Mamma.<br>
+            Meri Saanvi.<br>
+            Meri Sharma. 🫶🏻
+        </p>
+
+        <button class="btn" onclick="kissRain()">
+            SEND HER A THOUSAND KISSES 💋
+        </button>
+
+        <p style="color:#bba8c5;font-size:0.8rem;">
+            Tap anywhere on this page for a kiss. 💋
+        </p>
+
+    </div>
+
+    <div class="card center">
+        <h2>CASE STATUS</h2>
+
+        <div class="stamp">CLOSED FOREVER</div>
+
+        <p>
+            Officer Cat has officially ended the investigation.
+        </p>
+
+        <p>
+            The accused has been released on the condition
+            that both people communicate kindly,
+            respect each other's boundaries,
+            and remember how much they mean to each other.
+        </p>
+
+        <h2 class="glow">THE END. 💗</h2>
+
+        <button class="btn secondary" onclick="goTo('intro')">
+            REOPEN THE CASE ↺
+        </button>
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+/* ==============================
+   BASIC SCREEN NAVIGATION
+============================== */
+
+function goTo(screenId) {
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    const target = document.getElementById(screenId);
+
+    if (target) {
+        target.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+
+
+/* ==============================
+   FLOATING BACKGROUND PARTICLES
+============================== */
+
+(function createParticles() {
+    const holder = document.getElementById("particles");
+    const symbols = ["♡", "✦", "💗", "·"];
+
+    for (let i = 0; i < 24; i++) {
+        const particle = document.createElement("span");
+
+        particle.className = "particle";
+        particle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.fontSize = (10 + Math.random() * 18) + "px";
+        particle.style.animationDuration = (9 + Math.random() * 15) + "s";
+        particle.style.animationDelay = (-Math.random() * 20) + "s";
+
+        holder.appendChild(particle);
+    }
+})();
+
+
+/* ==============================
+   POLICE SIREN + FLASHING LIGHTS
+============================== */
+
+let sirenContext = null;
+let sirenOscillators = [];
+let sirenTimer = null;
+let flashInterval = null;
+
+function stopPoliceSiren() {
+    clearTimeout(sirenTimer);
+
+    sirenOscillators.forEach(oscillator => {
+        try {
+            oscillator.stop();
+        } catch (error) {}
+    });
+
+    sirenOscillators = [];
+
+    if (sirenContext) {
+        try {
+            sirenContext.close();
+        } catch (error) {}
+
+        sirenContext = null;
+    }
+}
+
+function playPoliceSiren() {
+    try {
+        stopPoliceSiren();
+
+        const AudioContext =
+            window.AudioContext || window.webkitAudioContext;
+
+        if (!AudioContext) return;
+
+        sirenContext = new AudioContext();
+
+        const oscillator = sirenContext.createOscillator();
+        const gain = sirenContext.createGain();
+
+        const now = sirenContext.currentTime;
+
+        oscillator.type = "sawtooth";
+
+        oscillator.frequency.setValueAtTime(650, now);
+        oscillator.frequency.setValueAtTime(900, now + 0.45);
+        oscillator.frequency.setValueAtTime(650, now + 0.9);
+        oscillator.frequency.setValueAtTime(900, now + 1.35);
+        oscillator.frequency.setValueAtTime(650, now + 1.8);
+        oscillator.frequency.setValueAtTime(900, now + 2.25);
+        oscillator.frequency.setValueAtTime(650, now + 2.7);
+        oscillator.frequency.setValueAtTime(900, now + 3.15);
+        oscillator.frequency.setValueAtTime(650, now + 3.6);
+        oscillator.frequency.setValueAtTime(900, now + 4.05);
+        oscillator.frequency.setValueAtTime(650, now + 4.5);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.linearRampToValueAtTime(0.09, now + 0.2);
+        gain.gain.setValueAtTime(0.09, now + 4.2);
+        gain.gain.linearRampToValueAtTime(0.0001, now + 4.9);
+
+        oscillator.connect(gain);
+        gain.connect(sirenContext.destination);
+
+        oscillator.start(now);
+        oscillator.stop(now + 5);
+
+        sirenOscillators.push(oscillator);
+
+        sirenTimer = setTimeout(stopPoliceSiren, 5100);
+
+    } catch (error) {
+        console.log("Police siren unavailable:", error);
+    }
+}
+
+function flashPoliceLights() {
+    const flash = document.getElementById("flash");
+
+    clearInterval(flashInterval);
+
+    flash.style.transition = "none";
+    flash.style.opacity = "0.3";
+
+    let count = 0;
+
+    flashInterval = setInterval(() => {
+        flash.style.background =
+            count % 2 === 0 ? "#ff0015" : "#063bff";
+
+        flash.style.opacity =
+            count % 2 === 0 ? "0.32" : "0.22";
+
+        count++;
+
+        if (count >= 18) {
+            clearInterval(flashInterval);
+            flash.style.opacity = "0";
+        }
+    }, 250);
+}
+
+
+/* ==============================
+   HANDCUFF SOUND EFFECT
+============================== */
+
+function playCuffSound() {
+    try {
+        const AudioContext =
+            window.AudioContext || window.webkitAudioContext;
+
+        if (!AudioContext) return;
+
+        const ctx = new AudioContext();
+        const duration = 0.35;
+
+        const buffer = ctx.createBuffer(
+            1,
+            ctx.sampleRate * duration,
+            ctx.sampleRate
+        );
+
+        const data = buffer.getChannelData(0);
+
+        for (let i = 0; i < data.length; i++) {
+            const fade = Math.exp(-i / (ctx.sampleRate * 0.08));
+
+            data[i] = (Math.random() * 2 - 1) * fade;
+        }
+
+        const source = ctx.createBufferSource();
+        const filter = ctx.createBiquadFilter();
+        const noiseGain = ctx.createGain();
+
+        source.buffer = buffer;
+
+        filter.type = "highpass";
+        filter.frequency.value = 900;
+
+        noiseGain.gain.value = 0.3;
+
+        source.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+
+        source.start();
+
+        const oscillator = ctx.createOscillator();
+        const clickGain = ctx.createGain();
+
+        oscillator.type = "triangle";
+
+        oscillator.frequency.setValueAtTime(
+            1600,
+            ctx.currentTime
+        );
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            450,
+            ctx.currentTime + 0.12
+        );
+
+        clickGain.gain.setValueAtTime(
+            0.18,
+            ctx.currentTime
+        );
+
+        clickGain.gain.exponentialRampToValueAtTime(
+            0.001,
+            ctx.currentTime + 0.15
+        );
+
+        oscillator.connect(clickGain);
+        clickGain.connect(ctx.destination);
+
+        oscillator.start();
+        oscillator.stop(ctx.currentTime + 0.16);
+
+        setTimeout(() => {
+            ctx.close().catch(() => {});
+        }, 700);
+
+    } catch (error) {
+        console.log("Handcuff sound unavailable:", error);
+    }
+}
+
+
+/* ==============================
+   ARREST SEQUENCE
+============================== */
+
+let arrestPerformed = false;
+
+function performArrest() {
+    if (arrestPerformed) return;
+
+    arrestPerformed = true;
+
+    const button = document.getElementById("arrestButton");
+    const result = document.getElementById("arrestResult");
+
+    button.disabled = true;
+    button.textContent = "POLICE OPERATION IN PROGRESS... 🚨";
+
+    // Start siren and red-blue lights.
+    playPoliceSiren();
+    flashPoliceLights();
+
+    // Handcuffs click after the siren begins.
+    setTimeout(() => {
+        playCuffSound();
+    }, 1000);
+
+    // Reveal the arrest dialogue after the dramatic effects.
+    setTimeout(() => {
+        result.style.display = "block";
+
+        button.textContent = "ARREST COMPLETED ⛓️";
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    }, 1600);
+
+    // Siren ends automatically after approximately five seconds.
+    setTimeout(() => {
+        stopPoliceSiren();
+    }, 5200);
+}
+
+
+/* ==============================
+   JAIL MESSAGE CHALLENGE
+============================== */
+
+let messagesSent = 0;
+
+function submitJailMessage() {
+    const input = document.getElementById("jailInput");
+    const counter = document.getElementById("jailCounter");
+    const progress = document.getElementById("jailProgress");
+    const messages = document.getElementById("jailMessages");
+    const unlock = document.getElementById("jailUnlock");
+
+    if (messagesSent >= 10) return;
+
+    const value = input.value.trim() || "💗";
+
+    messagesSent++;
+
+    const shortValue =
+        value.length > 70 ? value.slice(0, 70) + "..." : value;
+
+    messages.textContent +=
+        "💌 " + messagesSent + ". " + shortValue + "\n";
+
+    counter.textContent =
+        "Messages sent: " + messagesSent + " / 10";
+
+    progress.style.width = (messagesSent * 10) + "%";
+
+    input.value = "";
+
+    if (messagesSent >= 10) {
+        unlock.style.display = "block";
+        input.disabled = true;
+
+        document.querySelector(
+            '#jail button[onclick="submitJailMessage()"]'
+        ).disabled = true;
+
+        unlock.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+}
+
+document.getElementById("jailInput").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            submitJailMessage();
+        }
+    }
+);
+
+
+/* ==============================
+   RELEASE + KISS EFFECTS
+============================== */
+
+function releaseSaanvi() {
+    goTo("release");
+
+    setTimeout(kissRain, 500);
+}
+
+function spawnKiss(x, y, symbol) {
+    const holder = document.getElementById("kissLayer");
+    const kiss = document.createElement("span");
+
+    kiss.className = "kiss";
+    kiss.textContent = symbol || "💋";
+
+    kiss.style.left = x + "px";
+    kiss.style.top = y + "px";
+    kiss.style.fontSize = (22 + Math.random() * 24) + "px";
+
+    holder.appendChild(kiss);
+
+    setTimeout(() => kiss.remove(), 2300);
+}
+
+function kissRain() {
+    const symbols = ["💋", "😘", "💗", "💕", "🩷"];
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(() => {
+            spawnKiss(
+                Math.random() * window.innerWidth,
+                window.innerHeight * (0.45 + Math.random() * 0.5),
+                symbols[Math.floor(Math.random() * symbols.length)]
+            );
+        }, i * 75);
+    }
+}
+
+// Tapping anywhere creates a kiss at the tap location.
+document.addEventListener("click", function(event) {
+    if (event.target.closest("button, input")) return;
+
+    if (!document.getElementById("letter").classList.contains("active")) {
+        return;
+    }
+
+    spawnKiss(event.clientX, event.clientY, "💋");
+});
+
+
+/* ==============================
+   INITIAL STATE
+============================== */
+
+document.getElementById("arrestResult").style.display = "none";
+
+</script>
+
+</body>
+</html>
